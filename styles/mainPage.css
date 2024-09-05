@@ -1,10 +1,26 @@
-
-body{
+body {
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.Menu_principal{
+.Menu_principal {
     width: 100vw;
     height: 15vh;
     background-color: blue;
+}
+
+.container {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.list-group-item {
+    font-size: 18px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
 }
