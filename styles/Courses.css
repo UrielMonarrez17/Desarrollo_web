@@ -2,13 +2,14 @@
 /* Estilos generales */
 .display {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #323699;
     margin: 10px;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50vh;
+    border-radius: 10px;
 }
 
 /* Contenedor general de las clases */
