@@ -41,33 +41,7 @@ border-radius: 5%;
     border: 1px solid #ccc;
     margin-bottom: 20px;
 }
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #327799;
-    padding: 10px;
-    text-align: center;
-    color: #F5F5F5;
-}
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #327799;
-    padding: 10px;
-    text-align: center;
-    color: #F5F5F5;
-    width: 70%;
-}
-.footer .social {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-.footer .social i {
-    margin: 0 10px;
-}
+
 
 .Lista_descripcion{
     display: flex;
