@@ -1,10 +1,133 @@
-
-body{
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    padding: 10px;
+    text-align: center;
+}
+.header h1 {
     margin: 0;
 }
 
-.Menu_principal{
-    width: 100vw;
-    height: 15vh;
-    background-color: blue;
+
+.main {
+    padding: 5%;
+    text-align: center;
+    background-color: #F5F5F5;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+    color:#F5F5F5;
+    background-color: #323699;
+border-radius: 5%;
+}
+.content div {
+    padding: 10px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.categories div {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #327799;
+    padding: 10px;
+    text-align: center;
+    color: #F5F5F5;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #327799;
+    padding: 10px;
+    text-align: center;
+    color: #F5F5F5;
+    width: 70%;
+}
+.footer .social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.footer .social i {
+    margin: 0 10px;
+}
+
+.Lista_descripcion{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+}
+.Lista_description_container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: start;
+    width: 60%;
+}
+
+.Lista_description_container h3{
+    text-align: center;
+}
+
+.Lema{
+    margin-top: 10%;
+}
+
+.Flex_Vertical{
+    display: flex;
+    flex-direction: column;
+}
+.Flex_Horizontal{
+    display: flex;
+    flex-direction: row;
+}
+
+.ranking-container {
+    text-align: center;
+}
+
+.ranking-table {
+    width: 70%;
+    margin-top: 5px auto;
+    border-collapse: collapse;
+    color: #F5F5F5;
+    box-shadow: 0px 5px 15px black;
+}
+
+.ranking-table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ranking-table th, .ranking-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.ranking-table thead {
+    background-color: #329799;
+    color: #F5F5F5;
 }
