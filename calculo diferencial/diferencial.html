@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinoVision</title>
+    <link rel="icon" href="/Images/logo_prueba.ico" type="image/png">
+    <link rel="stylesheet" href="stylesDIf.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body >
+    <!-- Barra lateral -->
+    <nav class="sidebar">
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#section3">Section 3</a>
+        <a href="#section4">Section 4</a>
+    </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="Images/logo_prueba.webp" alt="Bootstrap" width="30" height="24">
+            </a>
+            <a class="navbar-brand" href="#">DinoVision</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         Dropdown
+                        </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              
+            </form>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Login</button>
+                <button type="button" class="btn btn-warning">Sign-up</button>
+              </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Contenido principal -->
+    <div class="main-content">
+        <h1>Algebra</h1>
+        <h4 id="tema1">Divisivilidad</h4>
+        <P>Como saber si un numero es divisor de otro. Tomaremos como ejemplo el numero 5060.</P>
+        <ul>
+            <ol><b>Cero :</b> Ningun numero es divisile entre cero</ol>
+            <ol><b>Uno :</b> Todos los numeros son divisilies entre uno.</ol>
+            <ol><b>Dos :</b> Todo numumero par.</ol>
+            <ol><b>Tres :</b> Que la suma de sus numeros sea divisible de 3.
+                Por ejemplo el 5060 seria: 5+0+6+0=11, 11 no es divisible entre 3
+                es decir, el resultado de 11/3 no es un numero entero.</ol>
+            <ol><b>Cuatro :</b> Que las ultimas dos cifras de un numero sean divisibles de cuatro.
+                Si tomamos nuevamente el 5060, solo tomamos sus dos ultimas cifras
+                siendo en este caso 60, 60/4 es igual a 15 por lo que si es divisible.</ol>
+            <ol><b>Cinco :</b> La untia cifra de un numero sea 5 o 0.
+                La ultima cifra de 5060 es 0 por lo que si es divisible.</ol>
+            <ol><b>Seis :</b> Tiene que ser par y divisible de 3. 
+                En el caso de 5060 ya hemos visto que 2 si es divisible, 
+                pero el numero 3 no lo es, por lo que el 6 tampoco lo es.</ol>
+            <ol><b>Siete :</b> Se deve de tomar el numero a exepcion de su ultima cifra,
+                en lugar de ser 5060 seria 506 y devemos restarle a este numero el doble
+                de la ultima cifra, en este caso es el doble de cero por lo que queda
+                el mismo numero. El reultado tiene que ser multiplo de 7,
+                lo que en este caso no ocurre.</ol>
+            <ol><b>Ocho :</b> Tiene que ser par y las ultimas tres cifras deven 
+                ser miltiplo de 8. En el caso de 5060, ya sabemos que es par,
+                asi que solo tomamos en cuenta 060 o 60. 60 no es multiplo de 8
+                por lo que no es divisible.</ol> 
+            <ol><b>Nueve :</b> Que la suma de sus cifras sea multiplo de 9. 
+                siendo 5060, seria 5+0+6+0=11, 11 no es multiplo de 9 por lo que
+                tampoco es divisible.</ol>
+            <ol><b>Dies :</b> Su ultima cifra deve ser 0.</ol>
+        </ul>
+        <h6>Ejercisios: </h6>
+        <p>Escribe en los recuadros que numeros del 2 al 10 que son divisores de el numero dado.</p>
+        <ul>
+            <il><p>3000-<input id="preg1" type="text"></p></il>
+            <il><p>471-<input id="preg2" type="text"></p></il>
+            <il><P>234-<input id="preg3" type="text"></p></il>
+        </ul>
+        <button id="comprobarBtn">Comprobar respuestas</button>
+        <div id="resultado"></div>
+
+        <h4 id="tema2">Sumas y Restas de polinomios</h4>
+        <p>Para sumar y o restar los coeficientes numericos deven de tener los terminos semejantes 
+            (un termino semejantre es cuando tienen las mismas bases o letras elevadas a las mimsmas potencias.)
+            Por ejemplo: 5x^2y^3 el numero 5 es el coeficiente, "x" y "y" son las bases y los numeros 
+            2 y 3 son las potencias y para sumarlo con otro termino como 7x^2y^3 primero nos devemos de acegurar
+            que ambos terminos tengan las mismas bases elevadas a las mismas potencias sin importar el orden, de lo contrario
+            no pueden sumarse ni restarse.
+        
+            Al sumar 5x^2y^3 y 7x^2y^3 el resultado sera 12x^2y^3, ambos coeficientes se suman pero 
+            pasan con las mismas bases a la misma potensia, esto pasas de igual forma cuando se restan.</p>
+        <h6>Ejercisios: </h6>
+        <p>Escribe en los recuadros que numeros del 2 al 10 que son divisores de el numero dado.</p>
+            <ul>
+                <il><p>3x^2y^2z^3 + 13y^2z^3x^2-<input id="preg4" type="text"></p></il>
+                <il><p>4x^2y^2 +7x^3y - 4x^2y^3 + 4xy^3 + 3xy^3<input id="preg5" type="text"></p></il>
+                <il><P>3x^2y^2z^3-<input id="preg6" type="text"></p></il>
+            </ul>
+        <button id="comprobarBtn">Comprobar respuestas</button>
+        <div id="resultado"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripDif.js"></script>
+</body>
+</html>
