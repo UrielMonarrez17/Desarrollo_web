@@ -15,6 +15,7 @@
         <a href="#tema2">Tema 2:Sumas y Restas</a>
         <a href="#tema3">Tema 3:Multiplicasion</a>
         <a href="#tema4">Tema 4:Division</a>
+        <a href="#tema5">Tema 5:Factorisacion</a>
     </nav>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -180,14 +181,14 @@
             del divisor x-2 despejaremos "x" pasando de x-2=0 a x=2. El numero al qe "x" sea igualada
             sera el numero que dividira a los coeficientes de el dividendo.</p>
         <p>parra hacer esta division se hace de una forma distinta en la que deveras seguir los siguientes pasos.</p>
-        <ul start="1">
-            <ol>pasar el primer coeficiente del divisor a la los numeros que pondremos en el cociente o resultado.</ol>
-            <ol>Multiplicar el ultimo numero que agregamos al cociente por el divisor y sumarlo a el siguiente numero
+        <ul tipe="1" start="1" >
+            <ol><b>o</b>pasar el primer coeficiente del divisor a la los numeros que pondremos en el cociente o resultado.</ol>
+            <ol><b>o</b>Multiplicar el ultimo numero que agregamos al cociente por el divisor y sumarlo a el siguiente numero
                 de el dividendo para finalmente agregar el resultado de esa suma al cociente.</ol>
-            <ol>Repetir el paso anterior asta hacer esto con el ultimo coeficiente de el dividendo</ol>
-            <ol>al terminar con los coeficientes, se considera al ultimo numero que se ingreso al
+            <ol><b>o</b>Repetir el paso anterior asta hacer esto con el ultimo coeficiente de el dividendo</ol>
+            <ol><b>o</b>al terminar con los coeficientes, se considera al ultimo numero que se ingreso al
                 cosiente como el residuo a menos de que este ultimo fuera un 0.</ol>
-            <ol>Por ultimo para escribir el resultado de la division se agregan nuevamente las bases
+            <ol><b>o</b>Por ultimo para escribir el resultado de la division se agregan nuevamente las bases
                 al cociente llendo desde la potensia 0 hasta la potensia que logremos llegar, esto sin
                 poner base al residuo ya que este lo agregaremos sumando y siendo dividido por el divisor </ol>
         </ul>
@@ -216,11 +217,39 @@
             se deveran escrivir empesando con el numero con el coeficiente mas grande y en  orden alfavetico, por ejemplo: X primero, Y segundo y Z al final, 
             cada una con sus respectivas potensias y escritas en minusculas y sin espacios.</p>
             <ul>
-                <il><p> x^2+4x-2 entre x-2 <input id="preg7" type="text"></p></il>
-                <il><p> 2x^2-5x+1 entre x-5 <input id="preg8" type="text"></p></il>
+                <il><p> x^2+4x-2 entre x-2 <input id="preg10" type="text"></p></il>
+                <il><p> 2x^2-5x+1 entre x-5 <input id="preg11" type="text"></p></il>
             </ul>
         <button id="comprobarBtn4">Comprobar respuestas</button>
         <div id="resultado4"></div>
+        <hr>
+        <h4 id="tema5">Tema 5: Factorisacion </h4>
+        <p><b>Factor :</b>Termino que multiplica a otro termino.</p>
+        <p><b>Factorisacion :</b>Descomponer una extpresion en factores.</p>
+        <p>Ejemplos:</p>
+        <ul>
+            <ol><p>(5/4)x^3 + (7/4)x^2 - (1/4)x + 3/4 podemos factorisar 1/4 de todos los numeros que 
+                conforman el polinomio dando como resultado (1/4)(5x^3 + 7x^2 - x + 3)</p></ol>
+            <ol><p>3x^2y + 6xy - 12y podemos factorisar 3y dando como resultado (3y)(x^2 + 2x - 4)</p></ol>
+        </ul>
+        <p>Hay varias formas de factorisar siendo la que acabamos de hacer la factorisacion por factor comun.
+            Veremos en total 6 siendo los otros 5:</p>
+        <ul>
+            <ol><b>o</b> Por agrupacion.</ol>
+            <ol><b>o</b> Diferencia de cuadreados.</ol>
+            <ol><b>o</b> Diferencia de cubos.</ol>
+            <ol><b>o</b> Suma de cubos</ol>
+            <ol><b>o</b> Trinomios cuadrados</ol>
+        </ul>
+        <h6>Ejercisios: </h6>
+        <p></p>
+            <ul>
+                <il><p> 1 <input id="preg12" type="text"></p></il>
+                <il><p> 2 <input id="preg13" type="text"></p></il>
+                <il><P> 3 <input id="preg14" type="text"></p></il>
+            </ul>
+        <button id="comprobarBtn5">Comprobar respuestas</button>
+        <div id="resultado5"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripDif.js"></script>
