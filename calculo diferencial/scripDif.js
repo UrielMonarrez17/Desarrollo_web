@@ -6,19 +6,23 @@ const respuestasCorrectas1 = {
 };
 
 const respuestasCorrectas2 = {
-    preg4: "16x^2y^2z^3", // 5040
-    preg5: "7xy-4x+2xy",       // 654
-    preg6: "2y"      // 324
+    preg4: "16x^2y^2z^3", 
+    preg5: "7xy-4x+2xy",       
+    preg6: "2y"      
 };
 
 const respuestasCorrectas3 = {
-    preg7: "4",   // 600
-    preg8: "25xy",    // 789
-    preg9: "y/4"      // 120
+    preg7: "4",  
+    preg8: "25xy",    
+    preg9: "y/4"      
 };
 const respuestasCorrectas4 = {
-    preg10: "x+6+(10/x-2)",   // x^2+4x-2 entre x-2      2  1+4-2
-    preg11: "2x+5+(26/x-5)",    // 2x^2-5x+1 entre x-5     5     2-5+1
+    preg10: "x+6+(10/x-2)",   
+    preg11: "2x+5+(26/x-5)",
+};
+const respuestasCorrectas5 = {
+    preg12: "5(y-12x+3)",   
+    preg13: "z(xy+x-y)",
 };
 
 // Función para comprobar un conjunto de preguntas
@@ -58,3 +62,8 @@ document.getElementById('comprobarBtn3').addEventListener('click', function() {
 document.getElementById('comprobarBtn4').addEventListener('click', function() {
     comprobarRespuestas(respuestasCorrectas4, 'resultado4');
 });
+
+document.getElementById('comprobarBtn5').addEventListener('click', function() {
+    comprobarRespuestas(respuestasCorrectas5, 'resultado5');
+});
+

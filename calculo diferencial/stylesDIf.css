@@ -8,8 +8,25 @@
     background-color: #333;
     padding-top: 20px;
     z-index: 1000; /* Para asegurarse de que se superponga al contenido */
+    transition: transform 0.3s ease; /* Animación para ocultar la barra */
   }
-
+  /* Esconde la barra lateral en pantallas pequeñas */
+@media (max-width: 768px) {
+  .sidebar {
+      transform: translateX(-100%); /* Mueve la barra fuera de la vista */
+  }
+  /* Botón para mostrar la barra lateral */
+  .sidebar-toggle {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1001;
+  }
+}
   .sidebar a {
     display: block;
     color: white;
@@ -26,7 +43,16 @@
   .main-content {
     margin-left: 220px; /* Deja espacio para la barra lateral */
     padding: 20px;
+    transition: margin-left 0.3s ease; /* Suaviza el cambio al ocultar la barra */
   }
+
+  /* Ajuste del contenido principal en pantallas pequeñas */
+@media (max-width: 768px) {
+  .main-content {
+      margin-left: 0; /* Usa todo el ancho de la pantalla */
+      padding: 20px;
+  }
+}
 
   /* Barra superior estática */
   .navbar {
@@ -36,6 +62,13 @@
     top: 0;
     z-index: 999;
   }
+
+  @media (max-width: 768px) {
+    .navbar {
+        width: 100%; /* Ajusta al ancho completo en pantallas pequeñas */
+        left: 0;
+    }
+}
 
   /* Ajustes para evitar superposición del contenido con la barra superior */
   h1 {
