@@ -1,0 +1,17 @@
+.container {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.list-group-item {
+    font-size: 18px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    margin-bottom: 10px;
+}
+
+
