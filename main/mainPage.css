@@ -2,7 +2,20 @@
 body{
     margin: 0;
 }
+/* Barra superior estática */
+.navbar {
+    position: fixed;
+    width: 100%; /* Ajustar al tamaño de la pantalla menos el ancho de la barra lateral */
+    top: 0;
+    z-index: 999;
+  }
 
+  @media (max-width: 768px) {
+    .navbar {
+        width: 100%; /* Ajusta al ancho completo en pantallas pequeñas */
+        left: 0;
+    }
+}
 .Menu_principal{
     width: 100vw;
     height: 15vh;
@@ -12,19 +25,19 @@ body{
 .display {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 10px;
-    padding: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: auto;
 }
 
 /* Contenedor general de las clases */
 .class-container {
     display: flex;
-    justify-content: space-around;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     width: 80%;
     max-width: 1000px;
 }
@@ -85,6 +98,18 @@ body{
     }
 
     .class-box {
+        margin-bottom: 20px;
+    }
+}
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .class-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class-box {
+        width: 90%; /* Ocupa la mayor parte del ancho en pantallas pequeñas */
         margin-bottom: 20px;
     }
 }
