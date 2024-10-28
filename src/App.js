@@ -7,6 +7,7 @@ import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
 import back from"./constants";
 
+
 function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [isRecording, setIsRecording] = useState(false);
@@ -96,7 +97,7 @@ const assistantHelp=async(message)=>{
       <Routes tabIndex="2">
         <Route path="/" element={<Home />} />           
         <Route path="/coursesView" element={<Courses />} /> 
-        <Route path="/wishlist" element={<WishList />} />   
+        <Route path="/Wish_list" element={<WishList />} />   
       </Routes>
       <Footer/>
     </Router>
