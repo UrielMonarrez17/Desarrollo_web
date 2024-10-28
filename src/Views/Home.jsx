@@ -7,6 +7,8 @@ import mascota from "../images/Mascota.png";
 import duolingo from "../images/Duolingo.png";
 import udemy from  "../images/Udemy.png";
 
+
+
 function Home(){
     return (
         <>
