@@ -50,7 +50,7 @@ function speak(text) {
   //console.log("va aqui")
   var utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "es-ES";
-  utterance.rate = 1.5;
+  utterance.rate = 1.3;
   //console.log("utter:",utterance)
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);

@@ -16,7 +16,7 @@ router.post('/chat', async function(req, res) {
               parts:[{
                 text: `Eres un asistente web útil y amigable de nombre Rick y tienes una funcion text to speech para hablar.Proporcionas información y ayuda a los usuarios con la navegacion de la pagina web.La pagina es de cursos sobre varios temas (Quimica, programacion, matematicas, etc). Responde de manera concisa,clara y en menos de 5 palabras.Cuando se te pida cambiar a alguna vista tu respuesta siempre debe contener la palabra redireccionando a (nombre de la vista pedida), para identificar los cambios de vista el usuario va a decir palabras similares a (ir, ve,cambia,muestra,abre).Responde a un usuario que dice lo siguiente:${prompt}`}]}]},
         {
-          headers: {// Mejor usar variables de entorno
+          headers: {
             'Content-Type': 'application/json',
           },
         }
@@ -30,7 +30,6 @@ router.post('/chat', async function(req, res) {
   
     } catch (error) {
       console.error('Error al generar texto con Gemini:', error);
-      // Envía una respuesta de error al cliente
       res.status(500).json({ error: 'Error al generar texto con Gemini' });
     }
   });
