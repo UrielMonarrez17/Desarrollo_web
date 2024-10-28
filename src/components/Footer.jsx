@@ -4,13 +4,13 @@ import logo from  "../images/logo-rick.png";
 
 function Footer(){
     return (
-        <div class="footer">
-        <div class="footer-container">
-          <img class="logo" src={logo} />
-          <div class="social">
-            <i class="fab fa-facebook-f"> </i>
-            <i class="fab fa-instagram"> </i>
-            <i class="fab fa-google"> </i>
+        <div className="footer">
+        <div className="footer-container">
+          <img className="logo" src={logo} />
+          <div className="social">
+            <i className="fab fa-facebook-f"> </i>
+            <i className="fab fa-instagram"> </i>
+            <i className="fab fa-google"> </i>
           </div>
           <div>
             <p>Contacto: numero</p>
