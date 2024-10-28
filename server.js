@@ -33,6 +33,21 @@ app.get('/', async (req, res) => {
   }
 });
 
+// Endpoint para obtener todos los ítems de la wish list
+app.get('/api/wishlist', async (req, res) => {
+  try {
+      const items = await WishListItem.find(); // Obtiene todos los ítems de la wish list
+      res.json(items);
+  } catch (error) {
+      res.status(500).json({ message: 'Error al obtener los ítems de la wish list' });
+  }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
