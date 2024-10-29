@@ -13,6 +13,7 @@ app.use(express.urlencoded({extended:true}));
 //Mongo Endpoints
 app.use('/database',rutaDatabase);
 app.use('/api',rutaApi);
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
