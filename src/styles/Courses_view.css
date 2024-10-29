@@ -2,24 +2,55 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-.main{
-    width: 100vw;
+} 
+.main-courses-container{
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 .filter_container{
-    background-color: aqua;
-    width: 20%;
-    height: 50vh;
-    margin-top: 5%;
-}
-
-.Courses_container{
+    
     display: flex;
     flex-direction: column;
+    margin-top: 1%;
+    width: 270px;
+    height: 100%;
+}
+
+.filters_item{
+display: flex;
+flex-direction: row;
+padding-bottom: 10px;
+}
+
+.filterText{
+    cursor: pointer;
+    margin-left: 8%;
+}
+
+.filters{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters_button{
+    border-radius: 20px;
+    background-color: #3f5198;
+    color:white;
+    margin-left: 20%;
+    border: #3f5198;
+    width: 55%;
+}
+
+.filters_button:hover{
+    transform: scale(1.05);
+}
+.CoursesContainer{
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    width: 80%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 }
@@ -36,4 +67,31 @@ body {
 
 .link-course{
     text-decoration: none;
+}
+
+.Card{
+    display: flex;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Sombra cercana y suave */
+    0 8px 10px rgba(0, 0, 0, 0.15), /* Sombra media */
+    0 12px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.cardText{
+    text-align: center;
+
+}
+
+.cardTitle{
+    text-align: center;
+ 
+}
+
+.collapse{
+    width: 70%;
 }

@@ -5,6 +5,7 @@ import Home from"./Views/Home";
 import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
 import back from"./constants";
+import { Link } from 'react-router-dom';
 
 function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -22,13 +23,11 @@ function App() {
 
   },[reconoce]);
 
-
-
- 
   reconoce.lang = "es-ES";  
   reconoce.interimResults = false;
 
-  async function asistente() {   
+  async function asistente() {  
+    
   reconoce.onend = event => { reconoce.start(); };
 	reconoce.onresult = reconoce.addEventListener("result", comandos);
     reconoce.start();
@@ -37,10 +36,20 @@ function App() {
 async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
+  console.log("ojo:",oracion) ;
   //console.log("oracion:",oracion);
   if (oracion.includes("rick")||oracion.includes("reik")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
+    respuestaChat=respuestaChat.toLowerCase();
+    if(respuestaChat.includes("redireccionando")){
+      if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
+        window.location.href ="/" ;
+      }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
+        window.location.href ="/coursesView";
+      }
+      
+    }
     //console.log("respuesta:",respuestaChat);
     speak(respuestaChat);
 }
@@ -59,6 +68,7 @@ function speak(text) {
   utterance.onerror = (e) => console.error("Error en el discurso", e);
 };
   const getMicrophoneAccess = async () => {
+    
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       setIsRecording(true);

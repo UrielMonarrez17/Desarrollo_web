@@ -5,7 +5,7 @@ html, body {
     width: 100%;
 }
 
-.main-container {
+.main_container {
     min-height: 100vh;
     min-width: 100%;
     display: flex;

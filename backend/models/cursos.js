@@ -2,7 +2,12 @@ const mongoose = require("../conectDB");
 
 const Course = mongoose.model('cursos_disponibles', {
   id: String,
-  course_name: String,
-  hours: Int32,
+  name: String,
+  hours: String,
+  image:String,
+  Types:[],
+  description: String,
+  autor:String,
+  course_url:String
 });
 module.exports=Course;

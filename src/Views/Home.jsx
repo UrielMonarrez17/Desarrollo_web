@@ -1,5 +1,4 @@
 import "../styles/mainPage.css" 
-import "../styles/Command_container.css";
 import "../styles/Courses_in_main.css";
 
 import fuego from "../images/fuego.png";

@@ -1,14 +1,14 @@
 import React from "react";
 import "../styles/Footer.css";
 import logo from  "../images/logo-rick.png";
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 function Footer(){
     return (
         <div className="footer">
         <div className="footer-container">
           <img className="logo" src={logo} />
           <div className="social">
-            <i className="fab fa-facebook-f"> </i>
+          <i className="fab fa-facebook-f"> </i>
             <i className="fab fa-instagram"> </i>
             <i className="fab fa-google"> </i>
           </div>
