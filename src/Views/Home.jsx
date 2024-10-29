@@ -22,7 +22,7 @@ function Home(){
                 <img
                   alt="Imagen de la mascota"
                   src={mascota}
-                  width="400px"
+                  className="Mascota"
                 />
               </div>
 

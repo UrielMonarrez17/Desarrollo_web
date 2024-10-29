@@ -1,0 +1,201 @@
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Secciones izquierda y derecha */
+.left-section {
+    width: 60%;
+    padding: 20px;
+}
+
+.right-section {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.mascota-recuadro {
+    width: 300px;
+    height: 300px;
+    background-color: #eeeeee;
+    border: 2px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+/* Estilo para la frase */
+.left-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Campos del formulario */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón de registro */
+#registrar-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: not-allowed;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#registrar-btn.active {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+/* Términos y condiciones */
+.terms {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Sección de inicio de sesión */
+.login-section {
+    margin-top: 30px;
+}
+
+#iniciar-btn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-section p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 95%; /* Ocupa casi todo el ancho de la pantalla */
+        padding: 10px; /* Reduce el espacio de padding */
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+
+    .mascota-recuadro {
+        margin-top: 20px;
+    }
+
+    /* Barra superior siempre visible en pantallas pequeñas */
+    .navbar {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+        left: 0; /* Alineación a la izquierda */
+        height: 60px; /* Asegura la altura fija */
+        display: flex;
+        justify-content: center;
+    }
+    /* Asegura que el contenedor principal esté centrado en pantallas pequeñas */
+    .wrapper {
+        margin-top: 60px; /* Evita superposición con la barra de navegación fija */
+    }
+
+    /* Ajusta el tamaño de la imagen de logo en pantallas pequeñas */
+    .navbar-brand img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Asegura que los elementos dentro de la barra de navegación se adapten bien */
+    .navbar .container-fluid {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+     /* Ajusta el tamaño del formulario y los campos de entrada */
+     form input[type="text"],
+     form input[type="email"],
+     form input[type="password"],
+     #registrar-btn,
+     #iniciar-btn {
+         font-size: 14px; /* Reduce el tamaño del texto en pantallas pequeñas */
+     }
+ 
+     /* Aumenta el tamaño de los botones de manera más notoria en dispositivos táctiles */
+     #registrar-btn,
+     #iniciar-btn {
+         padding: 12px;
+         font-size: 18px;
+     }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .left-section, .right-section {
+        padding: 15px;
+        text-align: center;
+    }
+
+    /* Ajusta la mascota en pantallas pequeñas */
+    .mascota-recuadro {
+        width: 200px;
+        height: 200px;
+        margin: auto; /* Centra el cuadro de la mascota */
+    }
+}
+@media (max-width: 500px) {
+    /* Elimina el padding extra de los bordes para mejorar el uso del espacio */
+    .container {
+        padding: 5px;
+    }
+
+    /* Optimiza el tamaño del texto en la sección de registro */
+    .left-section h2 {
+        font-size: 20px;
+    }
+
+    /* Espacio entre elementos reducido */
+    .terms, .login-section p {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+}

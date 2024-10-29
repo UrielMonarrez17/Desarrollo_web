@@ -8,6 +8,7 @@ const Course = mongoose.model('cursos_disponibles', {
   Types:[],
   description: String,
   autor:String,
-  course_url:String
+  course_url:String,
+  price:String
 });
 module.exports=Course;

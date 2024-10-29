@@ -15,7 +15,7 @@ body {
 
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 5%;
     margin-bottom: 5%;
     color:#F5F5F5;
@@ -23,9 +23,7 @@ body {
 border-radius: 20px;
     width: 80%;
 }
-.content div {
-    padding: 10px;
-}
+
 
 .categories {
     display: flex;
@@ -105,4 +103,8 @@ border-radius: 20px;
 .ranking-table thead {
     background-color: #329799;
     color: #F5F5F5;
+}
+
+.Mascota{
+    width: 200px;
 }

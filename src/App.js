@@ -5,6 +5,7 @@ import Home from"./Views/Home";
 import WishList from "./Views/WishList"; // Importar el componente de la wish list
 import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
+import Register from "./Views/Register";
 import back from"./constants";
 import { Link } from 'react-router-dom';
 
@@ -49,6 +50,10 @@ async function comandos(event) {
         window.location.href ="/" ;
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
         window.location.href ="/coursesView";
+      }else if(respuestaChat.includes("registro")){
+        window.location.href ="/Register";
+      }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
+        window.location.href ="/Wish_list";
       }
       
     }
@@ -93,6 +98,7 @@ const assistantHelp=async(message)=>{
     });
     const data = await response.json();
      setAssistantResponse(data.text);
+     console.log("rick:",data.text);
       return data.text;
     }catch{
       console.error("Error en la función de ayuda");
@@ -108,6 +114,7 @@ const assistantHelp=async(message)=>{
         <Route path="/" element={<Home />} />           
         <Route path="/coursesView" element={<Courses />} /> 
         <Route path="/Wish_list" element={<WishList />} />   
+        <Route path="/Register" element={<Register />} />  
       </Routes>
       <Footer/>
     </Router>

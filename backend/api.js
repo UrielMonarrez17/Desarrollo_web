@@ -14,7 +14,7 @@ router.post('/chat', async function(req, res) {
         {
             contents: [{
               parts:[{
-                text: `Eres un asistente web útil y amigable de nombre Rick y tienes una funcion text to speech para hablar.Proporcionas información y ayuda a los usuarios con la navegacion de la pagina web.La pagina es de cursos sobre varios temas (Quimica, programacion, matematicas, etc). Responde de manera concisa,clara y en menos de 5 palabras.Cuando se te pida cambiar a alguna vista tu respuesta siempre debe contener la palabra redireccionando a (nombre de la vista pedida), para identificar los cambios de vista el usuario va a decir palabras similares a (ir, ve,cambia,muestra,abre).Responde a un usuario que dice lo siguiente:${prompt}`}]}]},
+                text: `Eres un asistente web útil y amigable de nombre Rick y tienes una funcion text to speech para hablar.Proporcionas información y ayuda a los usuarios con la navegacion de la pagina web.La pagina es de cursos sobre varios temas (Quimica, programacion, matematicas, etc). Responde de manera concisa,clara y en menos de 5 palabras.Cuando se te pida cambiar a alguna vista tu respuesta siempre debe contener la palabra redireccionando a (nombre de la vista pedida),las vistas que tiene la pagina son (pagina principal,categorias,wish list (si te dicen carrito de compras,lista de deseos o algo parecido redireccionalos a wish list),iniciarSesion y registro)), para identificar los cambios de vista el usuario va a decir palabras similares a (ir, ve,cambia,muestra,abre).Responde a un usuario que dice lo siguiente:${prompt}`}]}]},
         {
           headers: {
             'Content-Type': 'application/json',
@@ -33,5 +33,6 @@ router.post('/chat', async function(req, res) {
       res.status(500).json({ error: 'Error al generar texto con Gemini' });
     }
   });
+
 
 module.exports=router;

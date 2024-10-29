@@ -45,16 +45,16 @@ function navbar(){
           </form>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="#">Wish List</a>
+              <Link className="nav-link" to="Wish_list">Wish List</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Donations</a>
             </li>
             <li className="nav-item">
-              <a className="btn btn-login me-2" href="#">Log In</a>
+              <Link className="btn btn-login me-2" to="#">Log In</Link>
             </li>
             <li className="nav-item">
-              <a className="btn btn-register" href="#">Register</a>
+              <Link className="btn btn-register" to="/Register">Register</Link>
             </li>
           </ul>
         </div>

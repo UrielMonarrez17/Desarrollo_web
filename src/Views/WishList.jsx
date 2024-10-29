@@ -36,7 +36,6 @@ const WishList = () => {
                             <p className="wishlist-item-type">{item.tipos.join(", ")}</p>
                             <p className="wishlist-item-description">{item.description}</p>
                             <p className="wishlist-item-price"><strong>Precio:</strong> ${item.price}</p>
-                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="wishlist-link">Más información</a>
                         </div>
                     </div>
                 ))}

@@ -82,6 +82,10 @@ padding-bottom: 10px;
     cursor: pointer;
 }
 
+.Card:hover{
+    transform: scale(1.05);
+}
+
 .cardText{
     text-align: center;
 
