@@ -26,7 +26,7 @@ router.get('/courses', async function(req,res){
     res.json(courses);
     }catch{
         console.log("Algo salio teeriblemente mal");
-        res.status(500).json({message: 'Error fetching users'});
+        res.status(500).json({message: 'Error fetching courses'});
         
     }
 });

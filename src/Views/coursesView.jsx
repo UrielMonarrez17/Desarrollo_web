@@ -106,7 +106,7 @@ function Courses() {
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>
         <Card.Text className="cardText">{item.autor}</Card.Text>
-            <button>Deseado</button>
+            
       </Card.Body>
     </Card>
           );
