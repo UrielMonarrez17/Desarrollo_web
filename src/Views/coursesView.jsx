@@ -5,7 +5,8 @@ import "../styles/Command_container.css";
 import { Card,Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import back from"../constants";
-import mascota from "../images/Mascota.png";
+import estrella from "../images/estrella.png";
+import axios from "axios";
 
 
 function Courses() {
@@ -37,6 +38,15 @@ function Courses() {
     filters[index].checked = !filters[index].checked;
     setFilters(filters);
     setUsersExcel(auxarray);
+  };
+
+  const agregarFavoritos = async (nombre) => {
+    const user=localStorage.getItem('user');
+    //console.log("us:",user);
+    const message= await axios.post(`${back.connection}/database/user/favorites`,
+      {nombre:nombre,user:user});
+      alert(message.data.message);
+    
   };
 
   const eventFiltrar = async() => {
@@ -102,6 +112,7 @@ function Courses() {
         {courses.length>0? courses.map((item,index)=>{
           return(
         <Card className="Card">
+          <img src={estrella} alt={"Añadir curso de "+item.name+" a favoritos"} className="favoriteIcon" onClick={()=>{agregarFavoritos(item.name)}}></img>
       <Card.Img variant="top" src={item.image} style={{ width: '8rem',height: '8rem', margin: '1rem' }}/>
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>

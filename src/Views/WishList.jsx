@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/WishList.css";
 import back from"../constants";
-import mascota from "../images/Mascota.png";
+
 
 const WishList = () => {
 
@@ -19,23 +19,23 @@ const WishList = () => {
                 usuario
             }
         );
-        console.log("res:",response);
-        setItems(response);
+        //console.log("res:",response);
+        setItems(response.data);
     }
 
     return (
         <div className="wishlist-container">
             <h1 className="wishlist-title">My Wish List</h1>
             <div className="wishlist-items">
-                {items.length>0?items.map(item => (
-                    <div key={item._id || item.name} className="wishlist-card">
-                        <img src={item.image} alt={item.name} className="wishlist-image" />
+                {items.length>0?items.map((item, index) => (
+                    <div key={item[0]._id || item[0].name} className="wishlist-card">
+                        <img src={item[0].image} alt={"Curso de "+item[0].name} className="wishlist-image" />
                         <div className="wishlist-content">
-                            <h5 className="wishlist-item-title">{item.name}</h5>
-                            <p className="wishlist-item-author">Por {item.autor}</p>
-                            <p className="wishlist-item-type">{item.Types.join(", ")}</p>
-                            <p className="wishlist-item-description">{item.description}</p>
-                            <p className="wishlist-item-price"><strong>Precio:</strong> ${item.__v}</p>
+                            <h5 className="wishlist-item-title">{item[0].name}</h5>
+                            <p className="wishlist-item-author">Por {item[0].autor}</p>
+                            <p className="wishlist-item-type">{item[0].Types.join(",")}</p>
+                            <p className="wishlist-item-description">{item[0].description}</p>
+                            <p className="wishlist-item-price"><strong>Precio:</strong> ${item[0].price}</p>
                         </div>
                     </div>
                 )):"Al parecer no tienes cursos en tu lista de deseos"}

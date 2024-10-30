@@ -71,17 +71,19 @@ router.post('/filters/exec', async function(req,res){
 
 router.post('/courses/user/wish', async function(req,res){
     const {usuario}=req.body;
+    
     const results=[];
     try {
 
-    const user = await User.find(usuario);
-
-    for (const curso of user.courses_wish) {
+    const user = await User.find({user_name:usuario});
+        //console.log("cur:",user);
+    for (const curso of user[0].courses_wish) {
         
          const course = await Courses.find({ name:curso});
             results.push( course )
         
     }
+    console.log("res:",results);
     res.json(results);
 
     
@@ -117,5 +119,22 @@ router.post('/user/register', async (req, res) => {
     res.json( token );
 });
 
+router.post('/user/favorites', async (req, res) => {
+    const { nombre, user } = req.body;
+
+    try{
+
+
+    const actualizacion = await User.updateOne(
+        { user_name: user }, // Filtro para encontrar el documento (por ID en este caso)
+        { $push: { courses_wish: nombre }}
+    );
+    //console.log("usuario:",actualizacion);
+    res.json({message:"Se ha agregado exitosamente"});
+}catch(error) {
+    console.error('Error al agregar a favoritos:', error);
+    res.status(500).json({message: 'Error al agregar a favoritos'});
+}
+});
 
 module.exports = router; 
