@@ -1,5 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 var router = express.Router();
 const User = require('./models/user');
 const Courses = require('./models/cursos');
@@ -44,13 +45,14 @@ router.get('/filters', async function(req,res){
 router.post('/filters/exec', async function(req,res){
     const data=req.body;
     const results = [];
-
+    const token = localStorage.getItem('token');
+    console.log("token:",token);
     try {
         for (const filtro of data) {
                 
                 // Llamada asíncrona a User.find() para cada hobby
                 
-                 const course = await Courses.find({ Types: filtro.type });
+                 const course = await User.find({ _id: token });
 
                  filtro.checked?
                     results.push( course ):null
@@ -68,23 +70,21 @@ router.post('/filters/exec', async function(req,res){
 });
 
 router.post('/courses/user/wish', async function(req,res){
-    const data=req.body;
-    const results = [];
-
+    const {usuario}=req.body;
+    const results=[];
     try {
-        for (const filtro of data) {
-                
-                // Llamada asíncrona a User.find() para cada hobby
-                
-                // const course = await Courses.find({ name:  });
 
-                 filtro.checked?
-                    results.push( course ):null
+    const user = await User.find(usuario);
 
-                
-            }
-        console.log("res:",results);
+    for (const curso of user.courses_wish) {
+        
+         const course = await Courses.find({ name:curso});
+            results.push( course )
+        
+    }
     res.json(results);
+
+    
     }catch{
         res.status(500).json({message: 'Error fetching users'});
         console.log("Algo salio teeriblemente mal");
@@ -94,7 +94,7 @@ router.post('/courses/user/wish', async function(req,res){
 });
 
 router.post('/user/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { userName,email, password } = req.body;
 
     // Verificar si el usuario ya existe
     const existingUser = await User.findOne({ email });
@@ -107,11 +107,15 @@ router.post('/user/register', async (req, res) => {
 
     // Crear y guardar el usuario
     const user = new User({
-        email,
+        user_name:userName,
+        correo:email,
         password: hashedPassword,
     });
-
     await user.save();
-    res.status(201).json({ message: 'Usuario registrado exitosamente' });
+    
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
+    res.json( token );
 });
+
+
 module.exports = router; 

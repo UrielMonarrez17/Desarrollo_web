@@ -33,7 +33,9 @@
     transform: scale(1.05);
 }
 
-
+.Perfil_icon{
+  width:40px;
+}
 
 .bi-search{
 width: 100%;

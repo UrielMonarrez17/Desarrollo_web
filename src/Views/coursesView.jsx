@@ -52,7 +52,6 @@ function Courses() {
     );
     const fil=await filtros.json();
 
-
     console.log("fil:",fil);
     setCourses(fil[0]);
     
@@ -107,7 +106,7 @@ function Courses() {
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>
         <Card.Text className="cardText">{item.autor}</Card.Text>
-       
+            <button>Deseado</button>
       </Card.Body>
     </Card>
           );

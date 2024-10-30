@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from "react";
+import { AuthProvider  } from './auth/AuthContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -13,6 +14,7 @@ import { Link } from 'react-router-dom';
 function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [isRecording, setIsRecording] = useState(false);
+
   const [assistantResponse, setAssistantResponse] = useState();
   const [reconoce,setReconoce]= useState(new SpeechRecognition());
   
@@ -51,7 +53,10 @@ async function comandos(event) {
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
         window.location.href ="/coursesView";
       }else if(respuestaChat.includes("registro")){
-        window.location.href ="/Register";
+
+          window.location.href ="/Register";
+        
+        
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
         window.location.href ="/Wish_list";
       }
@@ -107,9 +112,11 @@ const assistantHelp=async(message)=>{
 
 
   return (
-    
+    <AuthProvider>
     <Router>
+       
       <Navbar tabIndex="1"/> 
+      
       <Routes tabIndex="2">
         <Route path="/" element={<Home />} />           
         <Route path="/coursesView" element={<Courses />} /> 
@@ -118,7 +125,7 @@ const assistantHelp=async(message)=>{
       </Routes>
       <Footer/>
     </Router>
-    
+    </AuthProvider>
 
    
      
