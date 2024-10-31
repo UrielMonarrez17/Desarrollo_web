@@ -62,6 +62,9 @@ async function comandos(event) {
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
         window.location.href ="/Wish_list";
       }
+      else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
+        window.location.href ="/Login";
+      }
       
     }
     //console.log("respuesta:",respuestaChat);
