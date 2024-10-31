@@ -24,6 +24,7 @@ function App() {
   },[]);
 
   useEffect(() => {
+    reconoce.start();
     asistente();
 
   },[reconoce]);
