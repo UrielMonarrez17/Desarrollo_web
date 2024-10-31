@@ -62,7 +62,8 @@ async function comandos(event) {
       
     }
     //console.log("respuesta:",respuestaChat);
-    speak(respuestaChat);
+    respuestaChat?
+    speak(respuestaChat): null;
 }
 }
 
