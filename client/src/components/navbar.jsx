@@ -30,9 +30,9 @@ function navbar(){
             <li className="nav-item">
               <Link className="nav-link" to="/coursesView">Categorías</Link>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <a className="nav-link" href="#">Learning</a>
-            </li>
+            </li>*/}
           </ul>
           <form className="d-flex me-3">
             <input
@@ -49,9 +49,9 @@ function navbar(){
             <li className="nav-item">
               <Link className="nav-link" to="Wish_list">Wish List</Link>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <a className="nav-link" href="#">Donations</a>
-            </li>
+            </li>*/}
             {isAuthenticated ? (
                     <>
                         <li><a href="#"><img src={perfil} className="Perfil_icon" alt="Icono de perfil"/></a></li>

@@ -42,6 +42,7 @@ router.get('/filters', async function(req,res){
         
     }
 });
+
 router.post('/filters/exec', async function(req,res){
     const data=req.body;
     const results = [];
@@ -117,6 +118,18 @@ router.post('/user/register', async (req, res) => {
     
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
     res.json( token );
+});
+
+router.post('/user/login', async (req, res) => {
+    const { email, password } = req.body;
+    // Validación y autenticación del usuario
+    const user = await User.findOne({ email });
+    if (user && user.validatePassword(password)) {
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
+        res.json({ token });
+    } else {
+        res.status(400).json({ message: 'Credenciales incorrectas' });
+    }
 });
 
 router.post('/user/favorites', async (req, res) => {
