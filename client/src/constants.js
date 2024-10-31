@@ -4,7 +4,7 @@ var paginaBackend={
 
     if (process.env.NODE_ENV === "production") {
       paginaBackend={
-        connection :"/api2",
+        connection :"/api2/",
         };
     }
 export default paginaBackend;
