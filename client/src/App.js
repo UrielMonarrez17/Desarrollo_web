@@ -44,7 +44,7 @@ async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
   console.log("oracion:",oracion);
-  if (oracion.includes("rick")||oracion.includes("reik")) {
+  if (oracion.includes("rick")||oracion.includes("reik")||oracion.includes("ric")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
