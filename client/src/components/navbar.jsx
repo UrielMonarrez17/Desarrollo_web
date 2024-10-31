@@ -60,7 +60,7 @@ function navbar(){
                 ) : (
                   <>
             <li className="nav-item">
-              <Link className="btn btn-login me-2" to="#">Log In</Link>
+              <Link className="btn btn-login me-2" to="/Login">Log In</Link>
             </li>
             <li className="nav-item">
               <Link className="btn btn-register" to="/Register">Register</Link>

@@ -7,6 +7,7 @@ import WishList from "./Views/WishList"; // Importar el componente de la wish li
 import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
 import Register from "./Views/Register";
+import Login from "./Views/Login";
 import back from"./constants";
 import { Link } from 'react-router-dom';
 
@@ -124,6 +125,7 @@ const assistantHelp=async(message)=>{
         <Route path="/coursesView" element={<Courses />} /> 
         <Route path="/Wish_list" element={<WishList />} />   
         <Route path="/Register" element={<Register />} />  
+        <Route path="/Login" element={<Login />} />  
       </Routes>
       <Footer/>
     </Router>
