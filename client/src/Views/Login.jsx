@@ -3,18 +3,9 @@ import mascota from"../images/Mascota.png";
 import "../styles/Register.css";
 import back from"../constants";
 import axios from 'axios';
-function Register(){
+function Login(){
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // Seleccionamos los elementos del formulario
-const nombreInput = document.getElementById('nombre');
-const correoInput = document.getElementById('correo');
-const contraseñaInput = document.getElementById('contraseña');
-const terminosCheck = document.getElementById('terminos');
-const registrarBtn = document.getElementById('registrar-btn');
-
-// Función para verificar si los campos están completos
 
     const handleLogin = async (e) => {
 
@@ -31,7 +22,7 @@ const registrarBtn = document.getElementById('registrar-btn');
            
             
         } catch (error) {
-            alert("Error al registrar el usuario");
+            alert("Error al loggear el usuario");
         }
     };
 
@@ -64,4 +55,4 @@ const registrarBtn = document.getElementById('registrar-btn');
     );
   }
 
-  export default Register;
+  export default Login;

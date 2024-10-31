@@ -9,4 +9,8 @@ const User = mongoose.model('database_users', {
   password:String,
   strike:String,
 });
+
+User.methods.validatePassword = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 module.exports=User;
