@@ -22,13 +22,13 @@ function Courses() {
 
   const getAllCourses=async()=>{
     console.log("back:",`${back.connection}/database/courses`);
-    const cursos=await fetch(`${back.connection}/database/courses`);
+    const cursos=await axios.get(`${back.connection}/database/courses`);
     const cur=await cursos.json();
     setCourses(cur);
   }
 
   const getFilters=async()=>{
-    const filtros=await fetch(`${back.connection}/database/filters`);
+    const filtros=await axios.get(`${back.connection}/database/filters`);
     const fil=await filtros.json();
     setFilters(fil);
     console.log("fil:",fil);
