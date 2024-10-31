@@ -125,7 +125,7 @@ router.post('/user/login', async (req, res) => {
     // Validación y autenticación del usuario
     console.log("email:",email);
     console.log("password:",password);
-    const user = await User.findOne({ correo:email });
+    const user = await User.find({ correo:email });
     if (user && user.validatePassword(password)) {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
         res.json({ token });

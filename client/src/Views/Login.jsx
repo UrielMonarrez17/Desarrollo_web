@@ -4,7 +4,6 @@ import "../styles/Register.css";
 import back from"../constants";
 import axios from 'axios';
 function Register(){
-  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,7 +16,7 @@ const registrarBtn = document.getElementById('registrar-btn');
 
 // Función para verificar si los campos están completos
 
-    const handleRegister = async (e) => {
+    const handleLogin = async (e) => {
 
         e.preventDefault();
         try {
@@ -43,7 +42,7 @@ const registrarBtn = document.getElementById('registrar-btn');
               <div className="left-section">
                   <h2>Regístrate y logra lo que sea</h2>
                   
-                  <form id="register-form" onSubmit={(e)=>{handleRegister(e)}}>
+                  <form id="register-form" onSubmit={(e)=>{handleLogin(e)}}>
                       <input type="email" id="correo" placeholder="Correo" onChange={(e) => {setEmail(e.target.value);}} required />
                       <input type="password" id="contraseña" placeholder="Contraseña" onChange={(e) => {setPassword(e.target.value);}} required/>
       
