@@ -24,7 +24,7 @@ function App() {
   },[]);
 
   useEffect(() => {
-    reconoce.start();
+    
     asistente();
 
   },[reconoce]);
@@ -37,6 +37,7 @@ function App() {
   reconoce.onend = event => { reconoce.start(); };
 	reconoce.onresult = reconoce.addEventListener("result", comandos);
     reconoce.start();
+    console.log("empezo");
  }
 
 async function comandos(event) {
