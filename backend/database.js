@@ -44,16 +44,16 @@ router.get('/filters', async function(req,res){
 });
 
 router.post('/filters/exec', async function(req,res){
-    const data=req.body;
+    const {filters,user}=req.body;
     const results = [];
-    const token = localStorage.getItem('token');
-    console.log("token:",token);
+
+
     try {
-        for (const filtro of data) {
+        for (const filtro of filters) {
                 
                 // Llamada asíncrona a User.find() para cada hobby
                 
-                 const course = await User.find({ _id: token });
+                 const course = await User.find({ user_name: user });
 
                  filtro.checked?
                     results.push( course ):null
@@ -123,12 +123,13 @@ router.post('/user/register', async (req, res) => {
 router.post('/user/login', async (req, res) => {
     const { email, password } = req.body;
     // Validación y autenticación del usuario
-    console.log("email:",email);
-    console.log("password:",password);
-    const user = await User.find({ correo:email });
-    if (user && user.validatePassword(password)) {
+
+    const user = await User.findOne({ correo:email });
+    const registered = await user.validatePassword(password);
+    
+    if (user && registered) {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
-        res.json({ token });
+        res.json({ token,usuario:user.user_name });
     } else {
         res.status(400).json({ message: 'Credenciales incorrectas' });
     }

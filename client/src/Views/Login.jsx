@@ -13,11 +13,9 @@ function Login(){
         try {
             const response =await axios.post(`${back.connection}/database/user/login`, { email, password });
             const token = response.data;
-            localStorage.setItem('token', token);
-            
-            console.log("tok:",token)
+            localStorage.setItem('token', token.token);
             alert("Usuario registrado exitosamente");
-            localStorage.setItem('user', userName);
+            localStorage.setItem('user', token.usuario);
             window.location.href="/";
            
             
