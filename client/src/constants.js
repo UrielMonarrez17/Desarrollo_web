@@ -3,8 +3,8 @@ var paginaBackend={
     };
 
     if (process.env.NODE_ENV === "production") {
-
-      paginaBackend = "/api2";
-
+      paginaBackend={
+        connection :"/api2",
+        };
     }
 export default paginaBackend;
