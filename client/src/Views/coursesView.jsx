@@ -21,6 +21,7 @@ function Courses() {
   },[]);
 
   const getAllCourses=async()=>{
+    console.log("back:",back.connection);
     const cursos=await fetch(`${back.connection}/database/courses`);
     const cur=await cursos.json();
     setCourses(cur);
