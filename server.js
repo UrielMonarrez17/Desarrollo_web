@@ -4,9 +4,9 @@ const path = require('path');
 const rutaDatabase= require("./backend/database");
 const rutaApi= require("./backend/api");
 const app = express();
-const cors = require('cors');
+//const cors = require('cors');
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-app.use(cors());
+//app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 //Mongo Endpoints
