@@ -123,6 +123,8 @@ router.post('/user/register', async (req, res) => {
 router.post('/user/login', async (req, res) => {
     const { email, password } = req.body;
     // Validación y autenticación del usuario
+    console.log("email:",email);
+    console.log("password:",password);
     const user = await User.findOne({ correo:email });
     if (user && user.validatePassword(password)) {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10h' });
