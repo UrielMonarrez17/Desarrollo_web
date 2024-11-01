@@ -45,7 +45,7 @@ async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
   console.log("oracion:",oracion);
-  if (oracion.includes("rick")||oracion.includes("reik")||oracion.includes("ric")) {
+  if (oracion.includes("reik")||oracion.includes("ric")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
@@ -67,9 +67,8 @@ async function comandos(event) {
       }
       
     }
-    //console.log("respuesta:",respuestaChat);
-    respuestaChat?
-    speak(respuestaChat): null;
+    console.log("respuesta:",respuestaChat);
+    speak(respuestaChat);
 }
 }
 
