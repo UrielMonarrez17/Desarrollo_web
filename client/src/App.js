@@ -51,19 +51,19 @@ async function comandos(event) {
     respuestaChat=respuestaChat.toLowerCase();
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
-        return render("/")  ;
+        return redirect("/")  ;
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
-        return render("/coursesView");
+        return redirect("/coursesView");
       }else if(respuestaChat.includes("registro")){
 
-          return render("/Register");
+          return redirect("/Register");
         
         
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
-        return render("/Wish_list");
+        return redirect("/Wish_list");
       }
       else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
-        return render("/Login");
+        return redirect("/Login");
       }
       
     }
