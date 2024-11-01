@@ -53,14 +53,14 @@ router.post('/filters/exec', async function(req,res){
                 
                 // Llamada asíncrona a User.find() para cada hobby
                 
-                 const course = await User.find({ user_name: user });
+                 const course = await Courses.find({ Types: filtro.type });
 
                  filtro.checked?
                     results.push( course ):null
 
                 
             }
-        console.log("res:",results);
+        //console.log("res:",results);
     res.json(results);
     }catch{
         res.status(500).json({message: 'Error fetching users'});

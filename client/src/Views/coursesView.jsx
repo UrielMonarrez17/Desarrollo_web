@@ -30,7 +30,7 @@ function Courses() {
     const filtros=await fetch(`${back.connection}/database/filters`);
     const fil=await filtros.json();
     setFilters(fil);
-    console.log("fil:",fil);
+    //console.log("fil:",fil);
   }
 
   const handleCheckboxChange = (index) => {
@@ -51,19 +51,19 @@ function Courses() {
 
   const eventFiltrar = async() => {
     getAllCourses();
-    const user=localStorage.getItem('user');
     const filtros=await fetch(`${back.connection}/database/filters/exec`,
       {
         method: 'POST', // Indicar que es un POST
         headers: {
             'Content-Type': 'application/json', // Tipo de contenido
         },
-        body: JSON.stringify({filters,user}) // Convertir el objeto a una cadena JSON
+        body: JSON.stringify({filters}) // Convertir el objeto a una cadena JSON
     }
     );
+    //console.log("lita:",filtros);
     const fil=await filtros.json();
 
-    console.log("fil:",fil);
+    //console.log("filita:",fil);
     setCourses(fil[0]);
     
   };

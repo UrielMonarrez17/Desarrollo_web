@@ -34,36 +34,36 @@ function App() {
   reconoce.interimResults = false;
 
   async function asistente() {  
-    console.log("entraito");
+    //console.log("entraito");
   reconoce.onend = event => { reconoce.start(); };
 	reconoce.onresult = reconoce.addEventListener("result", comandos);
     reconoce.start();
-    console.log("empezo");
+    //console.log("empezo");
  }
 
 async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
-  console.log("oracion:",oracion);
+  //console.log("oracion:",oracion);
   if (oracion.includes("rick")||oracion.includes("reik")||oracion.includes("ric")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
-        window.location.href ="/" ;
+        return render("/")  ;
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
-        window.location.href ="/coursesView";
+        return render("/coursesView");
       }else if(respuestaChat.includes("registro")){
 
-          window.location.href ="/Register";
+          return render("/Register");
         
         
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
-        window.location.href ="/Wish_list";
+        return render("/Wish_list");
       }
       else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
-        window.location.href ="/Login";
+        return render("/Login");
       }
       
     }
@@ -90,7 +90,7 @@ function speak(text) {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       setIsRecording(true);
-      console.log("Access to microphone granted:", stream);
+      //console.log("Access to microphone granted:", stream);
     } catch (error) {
       console.error("Microphone access denied:", error);
     }
@@ -109,7 +109,7 @@ const assistantHelp=async(message)=>{
     });
     const data = await response.json();
      setAssistantResponse(data.text);
-     console.log("rick:",data.text);
+     //console.log("rick:",data.text);
       return data.text;
     }catch{
       console.error("Error en la función de ayuda");
