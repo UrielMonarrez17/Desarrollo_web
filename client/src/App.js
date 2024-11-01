@@ -45,10 +45,11 @@ async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
   console.log("oracion:",oracion);
-  if (oracion.includes("reik")||oracion.includes("ric")) {
+  if (oracion.includes("reik")||oracion.includes("ric") ||oracion.includes("rick")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
+    //console.log("respuesta 1:",respuestaChat);
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
         return <Navigate to="/" replace />  ;
@@ -78,7 +79,6 @@ function speak(text) {
   utterance.lang = "es-ES";
   utterance.rate = 1.3;
   //console.log("utter:",utterance)
-  window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
 
   utterance.onend = () => console.log("Discurso finalizado");
