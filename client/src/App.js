@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { AuthProvider  } from './auth/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -16,7 +16,6 @@ import { Link } from 'react-router-dom';
 function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [isRecording, setIsRecording] = useState(false);
-  const navigate = useNavigate();
   const [assistantResponse, setAssistantResponse] = useState();
   const [reconoce,setReconoce]= useState(new SpeechRecognition());
   
@@ -52,19 +51,19 @@ async function comandos(event) {
     respuestaChat=respuestaChat.toLowerCase();
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
-        return navigate("/")  ;
+        return <Navigate to="/" replace />  ;
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
-        return navigate("/coursesView");
+        return <Navigate to="/coursesView" replace />;
       }else if(respuestaChat.includes("registro")){
 
-          return navigate("/Register");
+          return <Navigate to="/Register" replace />;
         
         
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
-        return navigate("/Wish_list");
+        return <Navigate to="/Wish_list" replace />;
       }
       else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
-        return navigate("/Login");
+        return <Navigate to="/Login" replace />;
       }
       
     }
