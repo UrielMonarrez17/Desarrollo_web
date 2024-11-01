@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { AuthProvider  } from './auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -15,7 +16,7 @@ import { Link } from 'react-router-dom';
 function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [isRecording, setIsRecording] = useState(false);
-
+  const navigate = useNavigate();
   const [assistantResponse, setAssistantResponse] = useState();
   const [reconoce,setReconoce]= useState(new SpeechRecognition());
   
@@ -44,26 +45,26 @@ function App() {
 async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
-  //console.log("oracion:",oracion);
+  console.log("oracion:",oracion);
   if (oracion.includes("rick")||oracion.includes("reik")||oracion.includes("ric")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
-        return redirect("/")  ;
+        return navigate("/")  ;
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
-        return redirect("/coursesView");
+        return navigate("/coursesView");
       }else if(respuestaChat.includes("registro")){
 
-          return redirect("/Register");
+          return navigate("/Register");
         
         
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
-        return redirect("/Wish_list");
+        return navigate("/Wish_list");
       }
       else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
-        return redirect("/Login");
+        return navigate("/Login");
       }
       
     }
