@@ -74,11 +74,12 @@ async function comandos(event) {
 }
 
 function speak(text) {
-  //console.log("va aqui")
+  console.log("va aqui")
   var utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "es-ES";
   utterance.rate = 1.3;
   //console.log("utter:",utterance)
+  window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
 
   utterance.onend = () => console.log("Discurso finalizado");
