@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { AuthProvider  } from './auth/AuthContext';
-import { useLocation, useNavigate , Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -10,7 +10,6 @@ import Navbar from "./components/navbar";
 import Register from "./Views/Register";
 import Login from "./Views/Login";
 import back from"./constants";
-import { Link } from 'react-router-dom';
 
 
 function App() {
