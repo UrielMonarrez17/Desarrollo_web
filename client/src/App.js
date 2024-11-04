@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { AuthProvider  } from './auth/AuthContext';
-import { Navigate } from 'react-router-dom';
+import { useLocation, useNavigate , Link } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -18,7 +18,8 @@ function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [assistantResponse, setAssistantResponse] = useState();
   const [reconoce,setReconoce]= useState(new SpeechRecognition());
-  
+  const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => {
     getMicrophoneAccess();
     
@@ -52,19 +53,19 @@ async function comandos(event) {
     //console.log("respuesta 1:",respuestaChat);
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
-        return <Navigate to="/" replace />  ;
+        navigate(`/`);
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
-        return <Navigate to="/coursesView" replace />;
+        navigate(`/coursesView`);
       }else if(respuestaChat.includes("registro")){
 
-          return <Navigate to="/Register" replace />;
+          navigate(`/Register`);
         
         
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
-        return <Navigate to="/Wish_list" replace />;
+        navigate(`redirect=/Wish_list`);
       }
       else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
-        return <Navigate to="/Login" replace />;
+        navigate(`redirect=/Login`);
       }
       
     }

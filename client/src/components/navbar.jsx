@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import {  Link } from "react-router-dom";
 import { useAuth } from '../auth/AuthContext';
 import "../styles/NavBar.css";
 import logo from  '../images/logo-rick.png';
