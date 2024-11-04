@@ -16,7 +16,7 @@ function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [isRecording, setIsRecording] = useState(false);
   const [assistantResponse, setAssistantResponse] = useState();
-  //const [reconoce,setReconoce]= useState(new SpeechRecognition());
+  const [reconoce,setReconoce]= useState(new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()());
   const navigate = useNavigate();
   useEffect(() => {
     getMicrophoneAccess();
@@ -24,30 +24,19 @@ function App() {
   },[]);
 
   useEffect(() => {
-    if (navigator.userAgent.indexOf("Chrome") ||
-	navigator.userAgent.indexOf("Edge") ||
-	navigator.userAgent.indexOf("Safari")) {
-	console.log("identifico");
-	const reconoce = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+    
+    asistente();
 
-    reconoce.lang = "es-ES";  
-    reconoce.interimResults = false;
-    reconoce.onend = event => { reconoce.start(); };
-    reconoce.onresult = reconoce.addEventListener("result", comandos);
-    reconoce.start();
-  }
-  else {
-    alert('El Navegador no es compatible con el Reconocimiento de voz');
-  }
-  },[]);
+  },[reconoce]);
 
-
+  reconoce.lang = "es-ES";  
+  reconoce.interimResults = false;
 
   async function asistente() {  
     //console.log("entraito");
- /* reconoce.onend = event => { reconoce.start(); };
+  reconoce.onend = event => { reconoce.start(); };
 	reconoce.onresult = reconoce.addEventListener("result", comandos);
-    reconoce.start();*/
+    reconoce.start();
     //console.log("empezo");
  }
 
@@ -79,7 +68,7 @@ async function comandos(event) {
       
     }
     console.log("respuesta:",respuestaChat);
-    await speak(respuestaChat);
+    speak(respuestaChat);
 }
 }
 
