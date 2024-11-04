@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from "react";
 import { AuthProvider  } from './auth/AuthContext';
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -17,7 +17,6 @@ function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [assistantResponse, setAssistantResponse] = useState();
   const [reconoce,setReconoce]= useState(new SpeechRecognition());
-  const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
     getMicrophoneAccess();
