@@ -15,8 +15,8 @@ import back from"./constants";
 function App() {
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   const [isRecording, setIsRecording] = useState(false);
-  const [assistantResponse, setAssistantResponse] = useState();
-  const [reconoce,setReconoce]= useState(new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)()());
+  //const [assistantResponse, setAssistantResponse] = useState();
+  const [reconoce,setReconoce]= useState(new SpeechRecognition());
   const navigate = useNavigate();
   useEffect(() => {
     getMicrophoneAccess();
@@ -88,7 +88,7 @@ function speak(text) {
     
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      setIsRecording(true);
+      //setIsRecording(true);
       //console.log("Access to microphone granted:", stream);
     } catch (error) {
       console.error("Microphone access denied:", error);
@@ -107,7 +107,6 @@ const assistantHelp=async(message)=>{
         body: JSON.stringify({ message }), // Envía el mensaje en el cuerpo
     });
     const data = await response.json();
-     setAssistantResponse(data.text);
      //console.log("rick:",data.text);
       return data.text;
     }catch{
