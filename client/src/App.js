@@ -117,8 +117,9 @@ const assistantHelp=async(message)=>{
 
 
   return (
+
     <AuthProvider>
-    <Router>
+
        
       <Navbar tabIndex="1"/> 
       
@@ -130,8 +131,8 @@ const assistantHelp=async(message)=>{
         <Route path="/Login" element={<Login />} />  
       </Routes>
       <Footer/>
-    </Router>
     </AuthProvider>
+
 
    
      
