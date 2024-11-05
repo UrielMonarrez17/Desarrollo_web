@@ -58,6 +58,11 @@ function Courses() {
     
   };
 
+  
+  function handleCardClick(){
+    window.location.href = "/coursesView";
+  };
+
   return (
     <>
       
@@ -102,7 +107,7 @@ function Courses() {
         <div className="CoursesContainer">
         {courses.length>0? courses.map((item,index)=>{
           return(
-        <Card className="Card">
+        <Card className="Card" onClick = {handleCardClick}>
       <Card.Img variant="top" src={item.image} style={{ width: '8rem',height: '8rem', margin: '1rem' }}/>
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>
