@@ -16,9 +16,9 @@ function Home(){
           <div className="Flex_Vertical">
             <div className="Flex_Horizontal">
               <div>
-                <h3 className="Lema">
+                <h4 className="Lema">
                   "Anyone with the right means can achieve anything" -DinoVision
-                </h3>
+                </h4>
                 <img
                   alt="Imagen de la mascota"
                   src={mascota}
@@ -78,7 +78,7 @@ function Home(){
                     <td>
                       <img
                         alt="Imagen de la mascota"
-                        src="Images\fuego.png"
+                        src={fuego}
                         width="20px"
                       />
                     </td>
@@ -89,7 +89,7 @@ function Home(){
                     <td>
                       <img
                         alt="Imagen de la mascota"
-                        src="Images\fuego.png"
+                        src={fuego}
                         width="20px"
                       />
                     </td>
@@ -100,7 +100,7 @@ function Home(){
                     <td>
                       <img
                         alt="Imagen de la mascota"
-                        src="Images\fuego.png"
+                        src={fuego}
                         width="20px"
                       />
                     </td>
@@ -111,7 +111,7 @@ function Home(){
                     <td>
                       <img
                         alt="Imagen de la mascota"
-                        src="Images\fuego.png"
+                        src={fuego}
                         width="20px"
                       />
                     </td>

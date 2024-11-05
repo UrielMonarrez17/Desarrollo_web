@@ -1,16 +1,18 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-
+import {  Link } from "react-router-dom";
+import { useAuth } from '../auth/AuthContext';
 import "../styles/NavBar.css";
 import logo from  '../images/logo-rick.png';
+import perfil from  '../images/perfil.png';
 import search from  '../images/search.png';
 function navbar(){
+  const { isAuthenticated, logout } = useAuth();
     return (
       <>
       <nav className="navbar navbar-expand-lg navbar-custom">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Logo" width="40" height="30" />
+          <img src={logo} alt="Pagina principal" width="40" height="30" />
         </Link>
         <button
           className="navbar-toggler"
@@ -28,9 +30,9 @@ function navbar(){
             <li className="nav-item">
               <Link className="nav-link" to="/coursesView">Categorías</Link>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <a className="nav-link" href="#">Learning</a>
-            </li>
+            </li>*/}
           </ul>
           <form className="d-flex me-3">
             <input
@@ -47,39 +49,29 @@ function navbar(){
             <li className="nav-item">
               <Link className="nav-link" to="Wish_list">Wish List</Link>
             </li>
-            <li className="nav-item">
+            {/*<li className="nav-item">
               <a className="nav-link" href="#">Donations</a>
-            </li>
+            </li>*/}
+            {isAuthenticated ? (
+                    <>
+                        <li><a href="#"><img src={perfil} className="Perfil_icon" alt="Icono de perfil"/></a></li>
+                        <li><a onClick={logout} href="">Cerrar sesion</a></li>
+                    </>
+                ) : (
+                  <>
             <li className="nav-item">
-              <Link className="btn btn-login me-2" to="#">Log In</Link>
+              <Link className="btn btn-login me-2" to="/Login">Log In</Link>
             </li>
             <li className="nav-item">
               <Link className="btn btn-register" to="/Register">Register</Link>
             </li>
+            </>
+                )}
           </ul>
         </div>
       </div>
     </nav>
-      {/*
-      <nav className="nav">
-      <Link to="/">
-        <img className="logo" src={logo} alt="Logo" />
-      </Link>
-      <Link to="/coursesView"> Categorías </Link>
-      <Link to="/My_learning"> Learning </Link>
-      <div className="search-div">
-        <input type="search" placeholder="Search" />
-        <img className="search-icon" src={search} alt="Search Icon" />
-      </div>
-      <Link to="/Wish_list"> Wish List </Link>
-      <Link to="#"> Donations </Link>
-      <Link to="#" tabIndex="-1">
-        <button className="login-btn"> Log In</button>
-      </Link>
-      <Link to="#" tabIndex="-1">
-        <button className="register-btn"> Register</button>
-      </Link>
-    </nav>*/}
+ 
     </>
     );
 }

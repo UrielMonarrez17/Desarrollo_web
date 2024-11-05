@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 var router = express.Router();
 const axios = require("axios");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const API_KEY = process.env.API_KEY;
+
+const { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
 //const OpenAI = require('openai');
-const API_KEY ='AIzaSyBMW6r6KzWfMIPbnKCfSjwrAyd35UFH8eo'; 
 
 router.post('/chat', async function(req, res) {
     const prompt = req.body.message;

@@ -80,12 +80,27 @@ padding-bottom: 10px;
     margin-top: 1rem;
     margin-bottom: 1rem;
     cursor: pointer;
+    z-index: 1;
 }
 
 .Card:hover{
     transform: scale(1.05);
 }
 
+.favoriteIcon{
+    position: sticky;
+    bottom: 0%;
+    left: 0%;
+    width: 20px;
+    z-index: 2;
+    transition: all;
+    transition: transform 0.3s ease-in-out;
+}
+
+.favoriteIcon:hover{
+transform: scale(1.02) rotate(90deg);
+
+}
 .cardText{
     text-align: center;
 

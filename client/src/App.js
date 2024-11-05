@@ -1,4 +1,6 @@
 import React, {useState,useEffect} from "react";
+import { AuthProvider  } from './auth/AuthContext';
+import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Courses from"./Views/coursesView";
 import Home from"./Views/Home";
@@ -6,8 +8,8 @@ import WishList from "./Views/WishList"; // Importar el componente de la wish li
 import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
 import Register from "./Views/Register";
+import Login from "./Views/Login";
 import back from"./constants";
-import { Link } from 'react-router-dom';
 
 
 function App() {
@@ -15,13 +17,14 @@ function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [assistantResponse, setAssistantResponse] = useState();
   const [reconoce,setReconoce]= useState(new SpeechRecognition());
-  
+  const navigate = useNavigate();
   useEffect(() => {
     getMicrophoneAccess();
     
   },[]);
 
   useEffect(() => {
+    
     asistente();
 
   },[reconoce]);
@@ -30,40 +33,47 @@ function App() {
   reconoce.interimResults = false;
 
   async function asistente() {  
-    
+    //console.log("entraito");
   reconoce.onend = event => { reconoce.start(); };
 	reconoce.onresult = reconoce.addEventListener("result", comandos);
     reconoce.start();
+    //console.log("empezo");
  }
 
 async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
-  console.log("ojo:",oracion) ;
-  //console.log("oracion:",oracion);
-  if (oracion.includes("rick")||oracion.includes("reik")) {
+  console.log("oracion:",oracion);
+  if (oracion.includes("reik")||oracion.includes("ric") ||oracion.includes("rick")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
+    //console.log("respuesta 1:",respuestaChat);
     if(respuestaChat.includes("redireccionando")){
       if(respuestaChat.includes("main")||respuestaChat.includes("principal")||respuestaChat.includes("inicio")){
-        window.location.href ="/" ;
+        navigate(`/`);
       }else if(respuestaChat.includes("cursos")||respuestaChat.includes("categorías")){
-        window.location.href ="/coursesView";
+        navigate(`/coursesView`);
       }else if(respuestaChat.includes("registro")){
-        window.location.href ="/Register";
+
+          navigate(`/Register`);
+        
+        
       }else if(respuestaChat.includes("wish_list")||respuestaChat.includes("wish list")){
-        window.location.href ="/Wish_list";
+        navigate(`/Wish_list`);
+      }
+      else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
+        navigate(`/Login`);
       }
       
     }
-    //console.log("respuesta:",respuestaChat);
+    console.log("respuesta:",respuestaChat);
     speak(respuestaChat);
 }
 }
 
 function speak(text) {
-  //console.log("va aqui")
+  console.log("va aqui")
   var utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "es-ES";
   utterance.rate = 1.3;
@@ -79,7 +89,7 @@ function speak(text) {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       setIsRecording(true);
-      console.log("Access to microphone granted:", stream);
+      //console.log("Access to microphone granted:", stream);
     } catch (error) {
       console.error("Microphone access denied:", error);
     }
@@ -98,7 +108,7 @@ const assistantHelp=async(message)=>{
     });
     const data = await response.json();
      setAssistantResponse(data.text);
-     console.log("rick:",data.text);
+     //console.log("rick:",data.text);
       return data.text;
     }catch{
       console.error("Error en la función de ayuda");
@@ -107,18 +117,22 @@ const assistantHelp=async(message)=>{
 
 
   return (
-    
-    <Router>
+
+    <AuthProvider>
+
+       
       <Navbar tabIndex="1"/> 
+      
       <Routes tabIndex="2">
         <Route path="/" element={<Home />} />           
         <Route path="/coursesView" element={<Courses />} /> 
         <Route path="/Wish_list" element={<WishList />} />   
         <Route path="/Register" element={<Register />} />  
+        <Route path="/Login" element={<Login />} />  
       </Routes>
       <Footer/>
-    </Router>
-    
+    </AuthProvider>
+
 
    
      

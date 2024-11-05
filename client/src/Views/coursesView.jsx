@@ -5,7 +5,8 @@ import "../styles/Command_container.css";
 import { Card,Collapse } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import back from"../constants";
-import mascota from "../images/Mascota.png";
+import estrella from "../images/estrella.png";
+import axios from "axios";
 
 
 function Courses() {
@@ -29,7 +30,7 @@ function Courses() {
     const filtros=await fetch(`${back.connection}/database/filters`);
     const fil=await filtros.json();
     setFilters(fil);
-    console.log("fil:",fil);
+    //console.log("fil:",fil);
   }
 
   const handleCheckboxChange = (index) => {
@@ -37,6 +38,15 @@ function Courses() {
     filters[index].checked = !filters[index].checked;
     setFilters(filters);
     setUsersExcel(auxarray);
+  };
+
+  const agregarFavoritos = async (nombre) => {
+    const user=localStorage.getItem('user');
+    //console.log("us:",user);
+    const message= await axios.post(`${back.connection}/database/user/favorites`,
+      {nombre:nombre,user:user});
+      alert(message.data.message);
+    
   };
 
   const eventFiltrar = async() => {
@@ -47,20 +57,15 @@ function Courses() {
         headers: {
             'Content-Type': 'application/json', // Tipo de contenido
         },
-        body: JSON.stringify(filters) // Convertir el objeto a una cadena JSON
+        body: JSON.stringify({filters}) // Convertir el objeto a una cadena JSON
     }
     );
+    //console.log("lita:",filtros);
     const fil=await filtros.json();
 
-
-    console.log("fil:",fil);
+    //console.log("filita:",fil);
     setCourses(fil[0]);
     
-  };
-
-  
-  function handleCardClick(){
-    window.location.href = "/coursesView";
   };
 
   return (
@@ -107,12 +112,13 @@ function Courses() {
         <div className="CoursesContainer">
         {courses.length>0? courses.map((item,index)=>{
           return(
-        <Card className="Card" onClick = {handleCardClick}>
+        <Card className="Card">
+          <img src={estrella} alt={"Añadir curso de "+item.name+" a favoritos"} className="favoriteIcon" onClick={()=>{agregarFavoritos(item.name)}}></img>
       <Card.Img variant="top" src={item.image} style={{ width: '8rem',height: '8rem', margin: '1rem' }}/>
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>
         <Card.Text className="cardText">{item.autor}</Card.Text>
-       
+            
       </Card.Body>
     </Card>
           );
