@@ -4,7 +4,7 @@ var router = express.Router();
 const axios = require("axios");
 const API_KEY = process.env.API_KEY;
 
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+const { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
 //const OpenAI = require('openai');
 
 router.post('/chat', async function(req, res) {
