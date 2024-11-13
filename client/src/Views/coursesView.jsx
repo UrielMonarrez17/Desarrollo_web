@@ -112,15 +112,19 @@ function Courses() {
         <div className="CoursesContainer">
         {courses.length>0? courses.map((item,index)=>{
           return(
+            
         <Card className="Card">
           <img src={estrella} alt={"Añadir curso de "+item.name+" a favoritos"} className="favoriteIcon" onClick={()=>{agregarFavoritos(item.name)}}></img>
+          <Link className="nav-link" to="/CoursesInside">
       <Card.Img variant="top" src={item.image} style={{ width: '8rem',height: '8rem', margin: '1rem' }}/>
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>
         <Card.Text className="cardText">{item.autor}</Card.Text>
             
       </Card.Body>
+      </Link>
     </Card>
+    
           );
       }):null}
       </div>

@@ -9,6 +9,7 @@ import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
 import Register from "./Views/Register";
 import Login from "./Views/Login";
+import CoursesInside from "./Views/coursesInsideView";
 import back from"./constants";
 
 
@@ -128,7 +129,8 @@ const assistantHelp=async(message)=>{
         <Route path="/coursesView" element={<Courses />} /> 
         <Route path="/Wish_list" element={<WishList />} />   
         <Route path="/Register" element={<Register />} />  
-        <Route path="/Login" element={<Login />} />  
+        <Route path="/Login" element={<Login />} /> 
+        <Route path="/CoursesInside" element={<CoursesInside />} />  
       </Routes>
       <Footer/>
     </AuthProvider>
