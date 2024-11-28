@@ -1,0 +1,115 @@
+
+body{
+    margin: 0;
+}
+/* Barra superior estática */
+.navbar {
+    position: fixed;
+    width: 100%; /* Ajustar al tamaño de la pantalla menos el ancho de la barra lateral */
+    top: 0;
+    z-index: 999;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+        width: 100%; /* Ajusta al ancho completo en pantallas pequeñas */
+        left: 0;
+    }
+}
+.Menu_principal{
+    width: 100vw;
+    height: 15vh;
+    background-color: blue;
+}
+/* Estilos generales */
+.display {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+/* Contenedor general de las clases */
+.class-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* Estilos de cada clase (recuadro) */
+.class-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 200px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+.class-box:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de la imagen */
+.image-section {
+    height: 70%;
+    overflow: hidden;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sección de texto */
+.text-section {
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+.text-section h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .class-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class-box {
+        margin-bottom: 20px;
+    }
+}
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .class-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .class-box {
+        width: 90%; /* Ocupa la mayor parte del ancho en pantallas pequeñas */
+        margin-bottom: 20px;
+    }
+}

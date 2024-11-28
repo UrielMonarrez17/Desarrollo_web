@@ -1,0 +1,10 @@
+
+body{
+    margin: 0;
+}
+
+.Menu_principal{
+    width: 100vw;
+    height: 15vh;
+    background-color: blue;
+}
