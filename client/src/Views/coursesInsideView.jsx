@@ -45,12 +45,12 @@ const CoursesInsideView = () => {
         usuario:localStorage.getItem("user")
       }
     );
-    console.log("cur:",cursos);
-    if(cursos.data.includes("/Lesson")){
-      console.log("entro al 1:");
+    console.log("cur:",typeof cursos.data);
+    if(typeof cursos.data!="object"){
+      //console.log("entro al 1:" , cursos.data);
 navigate(cursos.data);
     }else{
-      console.log("entro al 2:");
+      //console.log("entro al 2:",cursos);
       setCursoActual(cursos.data);
     }
     
