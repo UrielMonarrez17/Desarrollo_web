@@ -115,7 +115,7 @@ function Courses() {
             
         <Card className="Card">
           <img src={estrella} alt={"Añadir curso de "+item.name+" a favoritos"} className="favoriteIcon" onClick={()=>{agregarFavoritos(item.name)}}></img>
-          <Link className="nav-link" to="/CoursesInside">
+          <Link className="nav-link" to={`/CoursesInside/${item.id}`}>
       <Card.Img variant="top" src={item.image} style={{ width: '8rem',height: '8rem', margin: '1rem' }}/>
       <Card.Body>
         <Card.Title className="cardTitle">{item.name}</Card.Title>

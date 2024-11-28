@@ -1,79 +1,69 @@
 import React from "react";
-import {  Link } from "react-router-dom";
-import { useAuth } from '../auth/AuthContext';
+import { Link } from "react-router-dom";
+import { Navbar, Nav, NavDropdown, Container, Form, FormControl, Button } from "react-bootstrap";
+import { useAuth } from "../auth/AuthContext";
+import logo from "../images/logo-rick.png";
+import perfil from "../images/perfil.png";
+import search from "../images/search.png";
 import "../styles/NavBar.css";
-import logo from  '../images/logo-rick.png';
-import perfil from  '../images/perfil.png';
-import search from  '../images/search.png';
-function navbar(){
+
+function NavBar() {
   const { isAuthenticated, logout } = useAuth();
-    return (
-      <>
-      <nav className="navbar navbar-expand-lg navbar-custom">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Pagina principal" width="40" height="30" />
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/coursesView">Categorías</Link>
-            </li>
-            {/*<li className="nav-item">
-              <a className="nav-link" href="#">Learning</a>
-            </li>*/}
-          </ul>
-          <form className="d-flex me-3">
-            <input
-              className="form-control search-bar me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-light" type="submit">
-              <img className="bi bi-search" src={search}></img>
-            </button>
-          </form>
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="Wish_list">Wish List</Link>
-            </li>
-            {/*<li className="nav-item">
-              <a className="nav-link" href="#">Donations</a>
-            </li>*/}
-            {isAuthenticated ? (
-                    <>
-                        <li><a href="#"><img src={perfil} className="Perfil_icon" alt="Icono de perfil"/></a></li>
-                        <li><a onClick={logout} href="">Cerrar sesion</a></li>
-                    </>
-                ) : (
-                  <>
-            <li className="nav-item">
-              <Link className="btn btn-login me-2" to="/Login">Log In</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="btn btn-register" to="/Register">Register</Link>
-            </li>
-            </>
-                )}
-          </ul>
-        </div>
-      </div>
-    </nav>
- 
-    </>
-    );
+
+  return (
+    <Navbar  expand="lg" className="navbar-custom">
+  <div className="navbar-container">
+    {/* Logo */}
+    <Navbar.Brand as={Link} to="/">
+      <img src={logo} alt="Página principal" className="Perfil_icon "/>
+    </Navbar.Brand>
+
+    {/* Botón de colapso */}
+    <Navbar.Toggle aria-controls="navbarNav" />
+
+    {/* Contenido colapsable */}
+    <Navbar.Collapse id="navbarNav" className="navbar-links">
+      {/* Menú principal */}
+      <Nav className="me-auto">
+        <Nav.Link as={Link} to="/coursesView" className="nav-link">
+          Categorías
+        </Nav.Link>
+      </Nav>
+
+      {/* Menú derecho */}
+      <Nav>
+        <Nav.Link as={Link} to="/Wish_list" className="nav-link">
+          Wish List
+        </Nav.Link>
+        {isAuthenticated ? (
+          <>
+            <Nav.Link as={Link} to="/Profile">
+              <img
+                src={perfil}
+                className="Perfil_icon"
+                alt="Icono de perfil"
+                width="30"
+              />
+            </Nav.Link>
+            <Nav.Link onClick={logout} href="#" className="nav-link">
+              Cerrar sesión
+            </Nav.Link>
+          </>
+        ) : (
+          <>
+            <Nav.Link as={Link} to="/Login">
+              <Button className="btn-login">Log In</Button>
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Register">
+              <Button className="btn-register">Register</Button>
+            </Nav.Link>
+          </>
+        )}
+      </Nav>
+    </Navbar.Collapse>
+  </div>
+</Navbar>
+  );
 }
 
-export default navbar;
+export default NavBar;

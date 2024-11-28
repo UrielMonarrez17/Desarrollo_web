@@ -9,7 +9,9 @@ import Footer from"./components/Footer";
 import Navbar from "./components/navbar";
 import Register from "./Views/Register";
 import Login from "./Views/Login";
+import Profile from "./Views/ProfileView";
 import CoursesInside from "./Views/coursesInsideView";
+import Lessons from "./Views/Lessons";
 import back from"./constants";
 
 
@@ -45,7 +47,7 @@ async function comandos(event) {
   var respuestaChat;
   const oracion = event.results[0][0].transcript.toLowerCase().trim();
   console.log("oracion:",oracion);
-  if (oracion.includes("reik")||oracion.includes("ric") ||oracion.includes("rick")) {
+  if (oracion.includes("coc")||oracion.includes("google")) {
     //console.log("entro:");
     respuestaChat= await assistantHelp(oracion);
     respuestaChat=respuestaChat.toLowerCase();
@@ -130,7 +132,9 @@ const assistantHelp=async(message)=>{
         <Route path="/Wish_list" element={<WishList />} />   
         <Route path="/Register" element={<Register />} />  
         <Route path="/Login" element={<Login />} /> 
-        <Route path="/CoursesInside" element={<CoursesInside />} />  
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/CoursesInside/:course_id" element={<CoursesInside />} />
+        <Route path="/Lessons/:course_id" element={<Lessons />} />  
       </Routes>
       <Footer/>
     </AuthProvider>
