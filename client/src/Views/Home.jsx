@@ -122,37 +122,6 @@ function Home(){
           </div>
         </div>
 
-        <h2>Categorias</h2>
-        <div className="display">
-          <div className="class-container">
-            <a href="Views\Courses\Courses_view.html" className="class-box">
-              <div className="image-section">
-                <img src={duolingo} alt="Página 1" />
-              </div>
-              <div className="text-section">
-                <h2>Duolingo</h2>
-              </div>
-            </a>
-
-            <a href="Views\Courses\Courses_view.html" className="class-box">
-              <div className="image-section">
-                <img src={udemy} alt="" />
-              </div>
-              <div className="text-section">
-                <h2>Udemy</h2>
-              </div>
-            </a>
-
-            <a href="Views\Courses\Courses_view.html" className="class-box">
-              <div className="image-section">
-                <img src={udemy} alt="" />
-              </div>
-              <div className="text-section">
-                <h2>Udemy</h2>
-              </div>
-            </a>
-          </div>
-        </div>
       </div>
       
     </>

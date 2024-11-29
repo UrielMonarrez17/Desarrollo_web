@@ -1,0 +1,97 @@
+body {
+    background-color: #f7f7f7;
+    color: #666666;
+  }
+  
+  .ProfileView-card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+  
+  .ProfileView-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .ProfileView-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .ProfileView-card-description {
+    font-size: 0.875rem;
+    color: #999999;
+  }
+  
+  .ProfileView-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #cccccc;
+    border: 0.125rem dashed #666666;
+  }
+  
+  .ProfileView-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .ProfileView-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 0.0625rem solid #cccccc;
+    border-radius: 0.25rem;
+  }
+  
+  .ProfileView-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #999999;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ProfileView-select-trigger {
+    width: 100%;
+    padding: 0.5rem;
+    border: 0.0625rem solid #cccccc;
+    border-radius: 0.25rem;
+  }
+  
+  .ProfileView-select-content {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    z-index: 10;
+  }
+  
+  .ProfileView-select-item {
+    display: block;
+    padding: 0.5rem;
+  }
+  
+  .ProfileView-select-item:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .ProfileView-button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  .ProfileView-button:hover {
+    background-color: #2ecc71;
+  }
+
+  .mt-4{
+    display: flex;
+    justify-content: center !important;
+  }

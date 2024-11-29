@@ -1,0 +1,30 @@
+
+.ViewLesson-container {
+width: 90% !important;
+margin-bottom: 3%;
+}
+.collapse {
+    width: 100% !important;
+}
+
+.ViewLesson-upper-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 20px;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.ViewLesson-down-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+}
+
+.ViewLessons-mb-4{
+    width: 90%;
+    margin-bottom: 1.5rem !important;
+}
