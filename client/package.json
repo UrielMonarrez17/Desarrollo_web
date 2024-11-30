@@ -1,0 +1,63 @@
+{
+  "name": "dinovision",
+  "version": "1.0.0",
+  "description": "Introduccion: \r The internet is a big source of information, where you can find whatever you want, in fact the web page marketing4ecommerce.net mentions that in 2021 the weight of the internet was approximately of 79.000.000.000.000 GB, this information is distributed in social media, images, videos, websites, fórums, etc..\r  The web pages are used as a very important media for share information with everyone that had access to the internet, having this in mind there are a crucial tool for the web to work, the es.statista.com web page mentions that at 2021 there were 1,880 million of web pages and the number of these ones is increasing exponentially as it is illustrated in the image below.\r But even though there is a lot of information not everyone can have access to it, this can happen due to different factors: who do not have access to the internet, the website restricts access, is not available on their domain or who have a disability.",
+  "main": "server.js",
+  "routes": {
+    "/**": "/index.html"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    
+    "start": "react-scripts start",
+
+    "server": "nodemon server.js",
+
+    "client": "npm start --prefix client",
+
+    "client-install": "npm install --prefix client",
+
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+
+    "render-postbuild": 
+
+    "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrielMonarrez17/Desarrollo_web.git"
+  },
+  "author": "Diego Alexis, Juan Pablo, Uriel Monarrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UrielMonarrez17/Desarrollo_web/issues"
+  },
+  "homepage": "",
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@google/generative-ai": "^0.21.0",
+    "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
+    "concurrently": "^9.0.1",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0",
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+  .navbar-custom {
+    background-color: #3a7c9d; /* Color de fondo de la navbar */
+    
+  }
+  
+  .navbar-custom .nav-link, .navbar-custom .navbar-brand {
+    color: #fff;
+    text-align: center;
+    margin: auto;
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 15px; /* Espaciado entre los links */
+  }
+
+  .navbar-container{
+    margin: 0 auto;   /* Centrado horizontal */
+    width: 85%;
+    gap:15px;
+    display: flex;
+    background-color: #3a7c9d;
+  }
+
+  .navbar-content.show {
+    display: block !important;
+  }
+
+  .navbar-custom .nav-link:hover {
+    color: #fff;
+  }
+  
+  .Perfil_icon {
+    width: 50px;
+  }
+  
+  .bi-search {
+    width: 100%;
+  }
+  
+  .btn-outline-light {
+    width: 50px;
+  }
+
+.btn-login {
+    background-color: #3f5198;
+    color: #fff;
+    border-radius: 20px;
+  }
+.btn-register {
+    background-color: #4eb785;
+    color: #fff;
+    border-radius: 20px;
+  }
+
+.btn-login:hover {
+    background-color: #254072;
+    border: 2px solid #254072;
+    transform: scale(1.05);
+}
+
+ .btn-register:hover {
+    background-color: #2ecc71;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+      width: 40px !important;
+      height: 30px !important;
+  }
+}
