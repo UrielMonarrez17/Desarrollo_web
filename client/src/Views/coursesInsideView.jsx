@@ -20,8 +20,8 @@ const CoursesInsideView = () => {
 
   useEffect(() => {
   const timer = setTimeout(() => {
-    setTimeout(() => setShowAlert(false), 500); // Ocultar después de la animación
-  }, 1500);
+    setTimeout(() => setShowAlert(false), 500); 
+  }, 3000);
 
   return () => clearTimeout(timer);
 }, [message]);
@@ -40,17 +40,26 @@ const CoursesInsideView = () => {
   }
 
   const getCourse=async()=>{
-    const cursos=await axios.post(`${back.connection}/database/courses/learning`,
-      {id:course_id,
-        usuario:localStorage.getItem("user")
-      }
-    );
+    var cursos;
+    if(isAuthenticated){
+      console.log("fenomenal:");
+       cursos=await axios.post(`${back.connection}/database/courses/learning`,
+        {id:course_id,
+          usuario:localStorage.getItem("user")
+        }
+      );
+    }else{
+       cursos=await axios.post(`${back.connection}/database/courses/learning`,
+        {id:course_id}
+      );
+    }
+    
     console.log("cur:",typeof cursos.data);
     if(typeof cursos.data!="object"){
-      //console.log("entro al 1:" , cursos.data);
+      console.log("entro al 1:" , cursos.data);
 navigate(cursos.data);
     }else{
-      //console.log("entro al 2:",cursos);
+      console.log("entro al 2:",cursos);
       setCursoActual(cursos.data);
     }
     
@@ -67,9 +76,11 @@ navigate(cursos.data);
         user:localStorage.getItem("user")
       }
     );
-    //console.log("adentro:",cursos.data.message);
+    console.log("adentro:",cursos.data);
     setMessage({ type: "info", text: cursos.data.message});
+    navigate(cursos.data.buy);
   }else{
+    
     setMessage({ type: "info", text:"Porfavor primero inicia sesion "});
   }
     

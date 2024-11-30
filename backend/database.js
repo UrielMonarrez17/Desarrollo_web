@@ -55,15 +55,24 @@ router.post('/courses/learning', async function(req,res){
     try{
     
     const inside = await CourseInside.findOne({id_course:id});
-    const user = await User.find({user_name:usuario});
-    const cursos= user[0].courses_learning;
+    var user,cursos;
+    if(usuario){
+         user = await User.find({user_name:usuario});
+         cursos= user[0].courses_learning;
+    }
+    
    // console.log("nada de sueño1:", id);
-    //console.log("nada de sueño", usuario);
-    if(cursos.includes(id)){
+    console.log("nada de sueño", user);
+    if(user){
+        if(cursos.includes(id)){
+            console.log("ta bien");
         const dentro = await CourseInside.findOne({id_course:id});
         const id_lesson=dentro.contenido[0].id;
         //console.log("aiuda",id_lesson.toString());
         res.send(`/Lessons/${id_lesson.toString()}`);
+    }else{
+        res.json(inside);
+    }
     }else{
         console.log("maso",inside);
         res.json(inside);
@@ -208,13 +217,21 @@ router.post('/user/buy', async (req, res) => {
 //console.log("entro:",course_id);
 //console.log("entro2:",user);
     try{
-
+    const usuario = await User.find({user_name:user});
+    const inside = await CourseInside.findOne({id_course:course_id});
+    const id_lesson=inside.contenido[0].id;
+    
+    if(!usuario[0].courses_learning.includes(course_id)){
+        
     const actualizacion = await User.updateOne(
         { user_name: user }, // Filtro para encontrar el documento (por ID en este caso)
         { $push: {courses_learning: course_id }}
     );
     console.log("usuario:",actualizacion);
-    res.json({message:"Se ha agregado exitosamente"});
+    res.json({message:"Se ha agregado exitosamente",buy:`/Lessons/${id_lesson.toString()}`});
+}else{
+    res.send({message:"Ya tienes este curso",buy:`/Lessons/${id_lesson.toString()}`})
+}
 }catch(error) {
     console.error('Error al agregar a favoritos:', error);
     res.status(500).json({message: 'Error al agregar a favoritos'});
