@@ -68,6 +68,9 @@ async function comandos(event) {
       else if(respuestaChat.includes("logi")||respuestaChat.includes("inic")){
         navigate(`/Login`);
       }
+      else if(respuestaChat.includes("perfi")){
+        navigate(`/Profile`);
+      }
       
     }
     console.log("respuesta:",respuestaChat);

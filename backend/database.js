@@ -6,7 +6,11 @@ const User = require('./models/user');
 const Courses = require('./models/cursos');
 const CourseInside = require('./models/cursosInside');
 const Filters = require('./models/filters');
+const Lessons = require('./models/lessons');
+const subLessons = require('./models/sub-lessons');
+const menuLessons = require('./models/lessons_menu');
 const Front = require('./front');
+const { ObjectId } = require('mongodb');
 router.get('/user', async function(req,res){
     try{
     const users = await User.find();
@@ -50,16 +54,18 @@ router.post('/courses/learning', async function(req,res){
     const {id,usuario}=req.body;
     try{
     
-    const inside = await CourseInside.findOne({id:id});
+    const inside = await CourseInside.findOne({id_course:id});
     const user = await User.find({user_name:usuario});
     const cursos= user[0].courses_learning;
-    console.log("nada de sueño1:", user);
-    console.log("nada de sueño", cursos);
+   // console.log("nada de sueño1:", id);
+    //console.log("nada de sueño", usuario);
     if(cursos.includes(id)){
-        console.log("aiuda");
-        res.send(`/Lessons/${id}`);
+        const dentro = await CourseInside.findOne({id_course:id});
+        const id_lesson=dentro.contenido[0].id;
+        //console.log("aiuda",id_lesson.toString());
+        res.send(`/Lessons/${id_lesson.toString()}`);
     }else{
-        console.log("maso");
+        console.log("maso",inside);
         res.json(inside);
     }
     
@@ -203,7 +209,6 @@ router.post('/user/buy', async (req, res) => {
 //console.log("entro2:",user);
     try{
 
-
     const actualizacion = await User.updateOne(
         { user_name: user }, // Filtro para encontrar el documento (por ID en este caso)
         { $push: {courses_learning: course_id }}
@@ -216,6 +221,61 @@ router.post('/user/buy', async (req, res) => {
 }
 });
 
+router.post('/lessons', async function(req,res){
+    const {id}=req.body;
+    const objectId = new ObjectId(`${id}`);
+    //console.log("fuk:",objectId);
+    try {
+    const lesson = await Lessons.findOne({_id:objectId});
+    
+    const search=lesson.partes[0].id.toString();
+    const sublesson = new ObjectId(`${search}`);
+    const leccion = await subLessons.findOne({_id:sublesson});
 
+    //console.log("res:",leccion);
+    res.json(leccion);
+    
+    }catch{
+        res.status(500).json({message: 'Error fetching users'});
+        console.log("Algo salio teeriblemente mal");
+    }
+}); 
+
+router.post('/lessons/menu', async function(req,res){
+    const {id}=req.body;
+    
+    try {
+        console.log("res12:",id);
+    const menu = await menuLessons.find({id_course:id});
+        
+    console.log("res:",menu);
+    res.json(menu);
+
+    
+    }catch{
+        res.status(500).json({message: 'Error fetching users'});
+        console.log("Algo salio teeriblemente mal");
+ 
+    }
+}); 
+
+router.post('/lessons/subLesson', async function(req,res){
+    const {_id}=req.body;
+    
+    try {
+
+    const sublesson = await subLessons.find({id:_id});
+        
+    //console.log("res:",results);
+    res.json(sublesson);
+
+    
+    }catch{
+        res.status(500).json({message: 'Error fetching users'});
+        console.log("Algo salio teeriblemente mal");
+        
+        
+    }
+}); 
 
 module.exports = router; 
