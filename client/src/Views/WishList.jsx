@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/WishList.css";
+import { useAuth } from "../auth/AuthContext";
 import back from"../constants";
 import { useNavigate } from "react-router-dom";
 
 const WishList = () => {
+    const { isAuthenticated, logout } = useAuth();
     const navigate = useNavigate();
     const [items, setItems] = useState([    ]);
 
     useEffect(() => {
-        getUserWishList();
+        if(isAuthenticated){
+            getUserWishList();
+        }
+        
     }, []);
 
     const getUserWishList=async()=>{
